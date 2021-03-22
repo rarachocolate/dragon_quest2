@@ -2,18 +2,17 @@ require './character.rb'
 require './brave.rb'
 require './monster.rb'
 
-a = Brave.new
-b = Monster.new
 
-def battle(brave:, monster:)
+def battle
+  brave = Brave.new(name: "勇者", hp: 100, offense: 100, defense: 100)
+  monster = Monster.new(name: "モンスター", hp: 100, offense: 100, defense: 100)
+
   puts "#{monster.name}があらわれた"
 
   while true
     brave.attack(monster)
 
-    unless monster.hp <= 0
-      monster.attack(brave)
-    end
+    monster.attack(brave) if monster.hp > 0
 
     puts <<~TEXT
     *=*=*=*=*=*=*=*=*=*=*
@@ -30,4 +29,4 @@ def battle(brave:, monster:)
   puts "#{monster.name}をやっつけた" if monster.hp == 0
 end
 
-battle(brave: a, monster: b)
+battle

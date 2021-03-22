@@ -1,16 +1,18 @@
 require './character.rb'
 
 class Monster < Character
-  def initialize(name: "モンスター", hp: 100, offense: 100, defense: 100)
+  def initialize(name:, hp:, offense:, defense:)
     @name = name
     @hp = hp
     @offense = offense 
     @defense = defense
   end
 
-  def attack(enemy)
-    damage = super
+  def attack(brave)
     puts "#{name}の攻撃！"
-    puts "#{enemy.name}は#{damage}のダメージを受けた！"
+    damage = super
+    brave.hp -= damage
+    brave.hp = 0 if brave.hp < 0
+    puts "#{brave.name}は#{damage}のダメージを受けた！"
   end
 end

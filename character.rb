@@ -10,10 +10,6 @@ class Character
 
   def attack(enemy)
     damage = (@offense - enemy.defense / 2)
-    enemy.hp -= damage
-    enemy.hp = 0 if enemy.hp < 0
-    #monster,braveクラスで与えたダメージの値を使うために戻り値に設定
-    damage
   end
 end
 
