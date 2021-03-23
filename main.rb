@@ -9,7 +9,7 @@ def battle
 
   puts "#{monster.name}があらわれた"
 
-  while true
+  while monster.hp > 0 && brave.hp > 0
     brave.attack(monster)
 
     monster.attack(brave) if monster.hp > 0
@@ -20,9 +20,6 @@ def battle
     【#{monster.name}】HP: #{monster.hp}
     *=*=*=*=*=*=*=*=*=*=*
     TEXT
-
-    break if monster.hp == 0 || brave.hp == 0
-    
   end
 
   puts "#{brave.name}はしんでしまった!" if brave.hp == 0

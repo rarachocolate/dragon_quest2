@@ -8,8 +8,8 @@ class Character
     @defense = defense
   end
 
-  def attack(enemy)
-    damage = (@offense - enemy.defense / 2)
+  def calculate_damage(enemy)
+    @offense - enemy.defense / 2
   end
 end
 
